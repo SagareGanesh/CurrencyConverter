@@ -21,7 +21,7 @@ class DashboardController < ApplicationController
     from_value    = currency_params[:from_value].to_f
 
     exchange_rate = get_exchage_rate(from_currency, to_currency)
-    { result: exchange_rate * from_value }.to_json
+    { result: (exchange_rate * from_value).round(2) }.to_json
   end
 
   def get_exchage_rate(from_currency, to_currency)
