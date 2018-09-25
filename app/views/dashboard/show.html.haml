@@ -1,23 +1,23 @@
 .container
   %br
   .jumbotron
-    .card
+    .card#currency_converter_card
       .card-body
         %h4.card-title Currency Converter
         %br
         .row
           .col-md-4
-            %input{type: "text", class: 'form-control', id: 'from_number'}
-          .col-md-4
-            .btn.btn-success#currency_converter Convert
-          .col-md-4
-            %input{type: "text", class: 'form-control', id: 'to_number', disabled: true}
-        %br
-        .row
-          .col-md-4
+            %input#from_number{type: "number", class: 'form-control'}
+
+            %br
+
             = select_tag "from_currency", options_for_select(currency_list, ''), id: 'from_currency', class: 'form-control'
+
+          .col-md-4#convert-btn-wrapper
+            .btn.btn-success#currency_converter Convert
+
           .col-md-4
-          .col-md-4
+            %input#to_number{type: "number", class: 'form-control', disabled: true}
+            %br
             = select_tag "from_currency", options_for_select(currency_list, ''), id: 'to_currency', class: 'form-control'
 
-        
