@@ -1,3 +1,9 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$(document).ready ->
+
+  $('body').on 'click', '#currency_converter', ->
+    from = $('#from_currency').val()
+    to = $('#to_currency').val()
+    fromNumber = $('#from_number').val()
+    if from and to and fromNumber
+      $.ajax({url: '/dashboard/show', type: 'post', data: { currency: {from: from, to: to, from_number: fromNumber}}}).done (res) ->
+        console.log(res)
