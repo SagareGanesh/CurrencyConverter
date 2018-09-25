@@ -1,5 +1,5 @@
 class DashboardController < ApplicationController
-  base_uri 'https://api.exchangeratesapi.io/latest'
+  include HTTParty
 
   def show
   end
