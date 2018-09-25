@@ -4,7 +4,7 @@ class DashboardController < ApplicationController
 
   def show
     respond_to do |format|
-      format.html
+      format.html {}
       format.json{ render json: convert_currency(currency_params) }
     end
   end
@@ -16,8 +16,8 @@ class DashboardController < ApplicationController
   end
 
   def convert_currency(currency_params)
-    from_currency = currency_params[:from_currency]
-    to_currency   = currency_params[:to_currency]
+    from_currency = currency_params[:from]
+    to_currency   = currency_params[:to]
     from_value    = currency_params[:from_value]
 
     exchange_rate = get_exchage_rate(from_currency, to_currency)
