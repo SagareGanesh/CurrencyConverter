@@ -1,5 +1,5 @@
 class DashboardController < ApplicationController
-  skip_before_filter :verify_authenticity_token  
+  skip_before_filter :verify_authenticity_token
   include HTTParty
 
   def show
@@ -18,7 +18,7 @@ class DashboardController < ApplicationController
   def convert_currency(currency_params)
     from_currency = currency_params[:from]
     to_currency   = currency_params[:to]
-    from_value    = currency_params[:from_value]
+    from_value    = currency_params[:from_value].to_f
 
     exchange_rate = get_exchage_rate(from_currency, to_currency)
     { result: exchange_rate * from_value }.to_json

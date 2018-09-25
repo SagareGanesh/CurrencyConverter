@@ -5,5 +5,7 @@ $(document).ready ->
     to = $('#to_currency').val()
     fromNumber = $('#from_number').val()
     if from and to and fromNumber
-      $.ajax({url: '/dashboard/show', dataType: "json", type: 'get', data: { currency: {from: from, to: to, from_value: fromNumber}}}).done (res) ->
-        console.log(res)
+      $.ajax({url: '/dashboard/show', dataType: "json", type: 'get', 
+              data: { currency: {from: from, to: to, from_value: fromNumber}}}).done (response) ->
+        $('#to_number').val(response.result)
+
