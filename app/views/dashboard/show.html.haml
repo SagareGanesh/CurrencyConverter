@@ -1,6 +1,20 @@
 .container
-  .row
+  %br
+  .jumbotron
     .card
-      .card-title Currency Converter
       .card-body
-        .btn.btn-success Show
+        %h4.card-title Currency Converter
+        %br
+        .row
+          .col-md-4
+            = select_tag "from_currency", options_for_select(currency_list, ''), id: 'from_currency', class: 'form-control'
+          .col-md-4
+          .col-md-4
+            = select_tag "from_currency", options_for_select(currency_list, ''), id: 'to_currency', class: 'form-control'
+        %br
+        .row
+          .col-md-4
+            %input{type: "text", class: 'form-control'}
+          .col-md-4
+          .col-md-4
+            %input{type: "text", class: 'form-control', disabled: true}
